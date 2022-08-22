@@ -16,15 +16,38 @@ urls = [
     'https://www.zillarules.com',
     'https://reptilesupply.com',
 
+    # Swell UK
+    'https://www.swelluk.com',
+    'https://www.pondkeeper.co.uk',
+    'https://www.allpondsolutions.co.uk',
+    'https://www.bradshawsdirect.co.uk',
+    'https://www.fishkeeper.co.uk',
+    'https://www.completeaquatics.co.uk',
+    'https://www.rocketaquatics.co.uk',
+    'https://www.pond-planet.co.uk',
+    'https://www.realaquatics.co.uk',
+
+
+    'https://www.swellpets.co.uk',
+    'https://fetch.co.uk',
+    'https://www.petsathome.com',
+    'https://tails.com',
+    'https://www.zooplus.co.uk',
+    'https://www.monsterpetsupplies.co.uk',
+    'http://www.petsdirect.co.uk',
+    'https://www.therange.co.uk/pets',
+    'https://www.pet-supermarket.co.uk',
+    'https://www.petshop.co.uk',
+    'https://www.purelypetsupplies.com',
+    'https://www.viovet.co.uk'
+
 ]
 
 df = pd.DataFrame(columns=['url', 'platform'])
 
 for url in urls:
+    print('URL:', url)
     row = {'url': url, 'platform': detector.get_platform(url)}
-    print(row)
-
     df = pd.concat([df, pd.DataFrame(row, index=[0])], ignore_index=True)
-
 print(df.sort_values(by='platform'))
 

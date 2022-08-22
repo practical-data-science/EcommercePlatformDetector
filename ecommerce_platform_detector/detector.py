@@ -42,6 +42,24 @@ def is_magento(url):
         return False
 
 
+def is_prismic(url):
+    response = requests.get(f'{url}', timeout=5)
+
+    if response.status_code == 200 and 'prismic' in response.text:
+        return True
+    else:
+        return False
+
+
+def is_netsuite(url):
+    response = requests.get(f'{url}', timeout=5)
+
+    if response.status_code == 200 and 'netsuite' in response.text:
+        return True
+    else:
+        return False
+
+
 def get_platform(url):
 
     if is_shopify(url):
@@ -52,6 +70,10 @@ def get_platform(url):
         return 'woocommerce'
     elif is_magento(url):
         return 'magento'
+    elif is_prismic(url):
+        return 'prismic'
+    elif is_netsuite(url):
+        return 'netsuite'
     else:
         return 'unknown'
 
