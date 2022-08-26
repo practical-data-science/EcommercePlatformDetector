@@ -8,7 +8,7 @@ import requests
 
 def is_shopify(url):
     try:
-        response = requests.get(f'{url}', timeout=5)
+        response = requests.get(f'{url}', timeout=5, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
 
         if response.status_code == 200 and 'shopify' in response.text:
             return True
@@ -19,7 +19,7 @@ def is_shopify(url):
 
 
 def is_bigcommerce(url):
-    response = requests.get(f'{url}', timeout=5)
+    response = requests.get(f'{url}', timeout=5,  headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
 
     if response.status_code == 200 and 'bigcommerce' in response.text:
         return True
@@ -28,7 +28,7 @@ def is_bigcommerce(url):
 
 
 def is_woocommerce(url):
-    response = requests.get(f'{url}', timeout=5)
+    response = requests.get(f'{url}', timeout=5,  headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
 
     if response.status_code == 200 and 'woocommerce' in response.text:
         return True
@@ -37,18 +37,16 @@ def is_woocommerce(url):
 
 
 def is_magento(url):
-    response = requests.get(f'{url}', timeout=5)
+    response = requests.get(f'{url}', timeout=5,  headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
 
-    if response.status_code == 200 and 'magento' in response.text:
-        return True
-    elif response.status_code == 200 and '/mage/' in response.text:
+    if response.status_code == 200 and '/mage/' in response.text:
         return True
     else:
         return False
 
 
 def is_prismic(url):
-    response = requests.get(f'{url}', timeout=5)
+    response = requests.get(f'{url}', timeout=5,  headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
 
     if response.status_code == 200 and 'prismic' in response.text:
         return True
@@ -57,7 +55,7 @@ def is_prismic(url):
 
 
 def is_netsuite(url):
-    response = requests.get(f'{url}', timeout=5)
+    response = requests.get(f'{url}', timeout=5,  headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
 
     if response.status_code == 200 and 'netsuite' in response.text:
         return True
@@ -66,7 +64,7 @@ def is_netsuite(url):
 
 
 def is_prestashop(url):
-    response = requests.get(f'{url}', timeout=5)
+    response = requests.get(f'{url}', timeout=5,  headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
 
     if response.status_code == 200 and 'prestashop' in response.text:
         return True

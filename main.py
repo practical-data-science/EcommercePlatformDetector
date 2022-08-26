@@ -43,6 +43,7 @@ urls = [
 
 ]
 
+
 df = pd.DataFrame(columns=['url', 'platform'])
 
 for url in urls:
