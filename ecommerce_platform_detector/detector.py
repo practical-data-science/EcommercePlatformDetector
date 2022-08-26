@@ -4,6 +4,7 @@ Author: Matt Clarke
 """
 
 import requests
+import pandas as pd
 
 
 def is_shopify(url):
@@ -92,4 +93,16 @@ def get_platform(url):
         return 'prestashop'
     else:
         return 'unknown'
+
+
+def get_platforms(urls, verbose=False):
+    df = pd.DataFrame(columns=['url', 'platform'])
+
+    for url in urls:
+        if verbose:
+            print(f' - Checking {url}')
+
+        row = {'url': url, 'platform': get_platform(url)}
+        df = pd.concat([df, pd.DataFrame(row, index=[0])], ignore_index=True)
+    return df.sort_values(by='platform')
 

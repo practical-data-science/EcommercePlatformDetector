@@ -44,11 +44,6 @@ urls = [
 ]
 
 
-df = pd.DataFrame(columns=['url', 'platform'])
-
-for url in urls:
-    print('URL:', url)
-    row = {'url': url, 'platform': detector.get_platform(url)}
-    df = pd.concat([df, pd.DataFrame(row, index=[0])], ignore_index=True)
-print(df.sort_values(by='platform'))
+df = detector.get_platforms(urls, verbose=True)
+print(df)
 
