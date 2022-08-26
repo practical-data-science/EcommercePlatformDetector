@@ -7,11 +7,14 @@ import requests
 
 
 def is_shopify(url):
-    response = requests.get(f'{url}', timeout=5)
+    try:
+        response = requests.get(f'{url}', timeout=5)
 
-    if response.status_code == 200 and 'shopify' in response.text:
-        return True
-    else:
+        if response.status_code == 200 and 'shopify' in response.text:
+            return True
+        else:
+            return False
+    except Exception as e:
         return False
 
 
@@ -38,6 +41,8 @@ def is_magento(url):
 
     if response.status_code == 200 and 'magento' in response.text:
         return True
+    elif response.status_code == 200 and '/mage/' in response.text:
+        return True
     else:
         return False
 
@@ -60,6 +65,17 @@ def is_netsuite(url):
         return False
 
 
+def is_prestashop(url):
+    response = requests.get(f'{url}', timeout=5)
+
+    if response.status_code == 200 and 'prestashop' in response.text:
+        return True
+    elif response.status_code == 200 and 'MyWishList' in response.text:
+        return True
+    else:
+        return False
+
+
 def get_platform(url):
 
     if is_shopify(url):
@@ -74,6 +90,8 @@ def get_platform(url):
         return 'prismic'
     elif is_netsuite(url):
         return 'netsuite'
+    elif is_prestashop(url):
+        return 'prestashop'
     else:
         return 'unknown'
 
