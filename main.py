@@ -5,8 +5,8 @@ import pandas as pd
 urls = [
 
     # Swell Reptiles
-    'https://www.internetreptile.com',
     'https://reptiles.swelluk.com',
+    'https://www.internetreptile.com',
     'https://www.reptilecentre.com',
     'https://www.thepetexpress.co.uk',
     'https://www.slitherinreptiles.com',
@@ -26,15 +26,15 @@ urls = [
     'https://www.rocketaquatics.co.uk',
     'https://www.pond-planet.co.uk',
     'https://www.realaquatics.co.uk',
+    'https://charterhouse-aquatics.com',
 
-
+    # Swell Pets
     'https://www.swellpets.co.uk',
     'https://fetch.co.uk',
     'https://www.petsathome.com',
     'https://tails.com',
     'https://www.zooplus.co.uk',
     'https://www.monsterpetsupplies.co.uk',
-    'http://www.petsdirect.co.uk',
     'https://www.therange.co.uk/pets',
     'https://www.pet-supermarket.co.uk',
     'https://www.petshop.co.uk',
